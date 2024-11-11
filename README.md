@@ -10,7 +10,11 @@ lab-2   => creating ssh-key
 <br/>
 Creating ssh-key pairs using terraform
 <br/>
-Lab-3   => creating security-group
+lab-3   => assigning key-pair to an instance using terraform
+<br/>
+Creating and assigning key-pair to an instance.
+<br/>
+Lab-4   => creating security-group
 <br/>
 Creating aws security-group using terraform
 
