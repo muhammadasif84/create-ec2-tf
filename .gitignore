@@ -1,0 +1,7 @@
+secrets
+dev-ops-labs_accessKeys.csv
+terraform.tfvars
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+.gitignore
