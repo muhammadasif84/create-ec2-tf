@@ -1,6 +1,6 @@
 # create-ec2-tf
 
-Creating full features AWS EC2 instance using Terraform
+Creating full features AWS EC2 instance using terraform
 <br/>
 Lab-1   => creating basic-ec2
 <br/>
