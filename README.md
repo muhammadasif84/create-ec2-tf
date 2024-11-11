@@ -9,4 +9,8 @@ Creating basic AWS ec2-instance using terraform.
 lab-2   => creating ssh-key
 <br/>
 Creating ssh-key pairs using terraform
+<br/>
+lab-3   => assigning key-pair to an instance using terraform
+<br/>
+Creating and assigning key-pair to an instance.
 
