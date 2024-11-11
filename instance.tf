@@ -15,6 +15,7 @@ resource "aws_instance" "aws-ec2" {
 
   ami           = "ami-0866a3c8686eaeeba"
   instance_type = "t2.micro"
+  key_name      = aws_key_pair.key-pair-ec2.key_name #assinging key-pair to an instance
   tags = {
     Name = "aws-ec2-tf"
   }
