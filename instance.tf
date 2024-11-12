@@ -28,6 +28,14 @@ resource "aws_security_group" "security-group-ec2" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+
+  }
 }
 
 #security-group id output
@@ -39,9 +47,10 @@ output "sg-id" {
 #creating basic ec2-instance
 resource "aws_instance" "aws-ec2" {
 
-  ami           = "ami-0866a3c8686eaeeba"
-  instance_type = "t2.micro"
-  key_name      = aws_key_pair.key-pair-ec2.key_name #assinging key-pair to an instance
+  ami                    = "ami-0866a3c8686eaeeba"
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.key-pair-ec2.key_name              #assinging key-pair to an instance
+  vpc_security_group_ids = ["${aws_security_group.security-group-ec2.id}"] #assigning security group to an instance
   tags = {
     Name = "aws-ec2-tf"
   }

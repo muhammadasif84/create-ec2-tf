@@ -17,5 +17,9 @@ Creating and assigning key-pair to an instance.
 Lab-4   => creating security-group
 <br/>
 Creating aws security-group using terraform
+<br/>
+lab-5   = assigning security-group to an instance using terraform
+<br/>
+Creating and assigning security group to an instance and allowing egrees rules. 
 
 
