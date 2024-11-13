@@ -21,5 +21,9 @@ Creating aws security-group using terraform
 lab-5   = assigning security-group to an instance using terraform
 <br/>
 Creating and assigning security group to an instance and allowing egrees rules. 
+<br/>
+lab-6   => adding userData 
+<br/>
+Adding userData for installing dependencies in an instance using shellScript and terraform. 
 
 

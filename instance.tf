@@ -9,4 +9,12 @@ resource "aws_instance" "aws-ec2" {
     Name = "aws-ec2-tf"
   }
 
+  user_data = file("${path.module}/userData.sh")
+
+}
+
+output "public-ip" {
+
+  value = aws_instance.aws-ec2.public_ip
+
 }
