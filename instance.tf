@@ -11,10 +11,28 @@ resource "aws_instance" "aws-ec2" {
 
   user_data = file("${path.module}/userData.sh")
 
+  #defining connection for all provisioners
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("${path.module}/id_rsa")
+    host        = self.public_ip
+  }
+  provisioner "file" {
+    source      = "./README.md"    #terraform machine file 
+    destination = "/tmp/README.md" #remote ubuntu machine
+  }
+  provisioner "file" {
+    source      = "./test-folder"
+    destination = "/tmp/test-folder"
+  }
+  provisioner "file" {
+    content     = "This is content from provisioner"
+    destination = "/tmp/content.md"
+  }
+
 }
 
 output "public-ip" {
-
   value = aws_instance.aws-ec2.public_ip
-
 }
