@@ -25,5 +25,9 @@ Creating and assigning security group to an instance and allowing egrees rules.
 lab-6   => adding userData 
 <br/>
 Adding userData for installing dependencies in an instance using shellScript and terraform. 
+<br/>
+Lab-7   => adding provisioners
+<br/>
+Adding provisioners to copy machine files/folders to remote machine(ubuntu) using terraform and terraform provisioners.
 
 
