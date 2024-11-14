@@ -11,7 +11,7 @@ resource "aws_instance" "aws-ec2" {
 
   user_data = file("${path.module}/userData.sh")
 
-  #defining connection for all provisioners
+  #defining connection for all provisioners , docs link of provisioner https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec
   connection {
     type        = "ssh"
     user        = "ubuntu"
@@ -23,14 +23,25 @@ resource "aws_instance" "aws-ec2" {
     destination = "/tmp/README.md" #remote ubuntu machine
   }
   provisioner "file" {
-    source      = "./test-folder"
-    destination = "/tmp/test-folder"
+    source      = "./test-folder"    #terraform machine folder 
+    destination = "/tmp/test-folder" #remote ubuntu machine
   }
   provisioner "file" {
     content     = "This is content from provisioner"
     destination = "/tmp/content.md"
   }
 
+  provisioner "remote-exec" {
+    inline = [
+      "ifconfig > /tmp/ifconfig.output",
+      "echo 'This is from terraform' > /tmp/test.txt"
+    ]
+
+  }
+  provisioner "remote-exec" {
+    script = "./test-script.sh"
+
+  }
 }
 
 output "public-ip" {
