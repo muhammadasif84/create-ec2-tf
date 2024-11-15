@@ -21,7 +21,7 @@ variable "instance-type" {
 
 }
 
-variable "image-id" {
+variable "image-name" {
   type = string
 
 }
@@ -29,5 +29,8 @@ variable "image-id" {
 variable "region" {
 
   type = string
+
+}
+variable "ownername" {
 
 }

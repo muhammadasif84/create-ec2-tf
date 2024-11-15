@@ -29,5 +29,9 @@ Adding userData for installing dependencies in an instance using shellScript and
 Lab-7   => adding provisioners
 <br/>
 Adding provisioners to copy machine files/folders to remote machine(ubuntu) using terraform and terraform provisioners.
+<br/>
+Lab-8   => defining data sources for ami
+<br/>
+Defining and adding data sources for amazon machine image to automate the ec2 ami creation using terraform.
 
 
