@@ -33,5 +33,9 @@ Adding provisioners to copy machine files/folders to remote machine(ubuntu) usin
 Lab-8   => defining data sources for ami
 <br/>
 Defining and adding data sources for amazon machine image to automate the ec2 ami creation using terraform.
+<br/>
+Lab-9   => added cofiguration and vpc code 
+<br/>
+Added cofiguration code for terraform version handle and added vpc creation code using terraform.
 
 
