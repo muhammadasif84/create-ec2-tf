@@ -2,6 +2,7 @@
 resource "aws_security_group" "security-group-ec2" {
   name        = "security-group-ec2"
   description = "allowed ports"
+  vpc_id      = aws_vpc.labs-vpc.id
 
   dynamic "ingress" {
     for_each = var.ports

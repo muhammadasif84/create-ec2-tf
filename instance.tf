@@ -67,3 +67,4 @@ resource "aws_instance" "aws-ec2" {
 output "public-ip" {
   value = aws_instance.aws-ec2.public_ip
 }
+

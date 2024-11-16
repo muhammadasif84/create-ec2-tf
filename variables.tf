@@ -34,3 +34,9 @@ variable "region" {
 variable "ownername" {
 
 }
+variable "cidr-block" {
+
+}
+variable "subnet-cidr" {
+
+}

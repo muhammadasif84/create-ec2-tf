@@ -9,3 +9,4 @@ terraform.tfstate.backup
 id_rsa
 id_rsa.pub
 dataSources-code
+dev-terraform.tfvars
