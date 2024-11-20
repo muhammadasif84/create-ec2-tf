@@ -37,5 +37,9 @@ Defining and adding data sources for amazon machine image to automate the ec2 am
 Lab-9   => added cofiguration and vpc code 
 <br/>
 Added cofiguration code for terraform version handle and added vpc creation code using terraform.
+<br/>
+Lab-10  => added removed block code 
+<br/>
+Added removed block code and import code (to import resources again) using terraform.
 
 

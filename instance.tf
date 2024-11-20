@@ -24,7 +24,7 @@ resource "aws_instance" "aws-ec2" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance-type
   key_name               = aws_key_pair.key-pair-ec2.key_name              #assinging key-pair to an instance
-  vpc_security_group_ids = ["${aws_security_group.security-group-ec2.id}"] #assigning security group to an instance
+  vpc_security_group_ids = ["${aws_security_group.security-group-ec2.id}"] #assigning vpc and security group to an instance
   tags = {
     Name = "aws-ec2-tf"
   }
@@ -66,5 +66,8 @@ resource "aws_instance" "aws-ec2" {
 
 output "public-ip" {
   value = aws_instance.aws-ec2.public_ip
+}
+output "image-id" {
+  value = aws_instance.aws-ec2.ami
 }
 
