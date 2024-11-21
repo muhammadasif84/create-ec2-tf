@@ -38,8 +38,12 @@ Lab-9   => added cofiguration and vpc code
 <br/>
 Added cofiguration code for terraform version handle and added vpc creation code using terraform.
 <br/>
-Lab-10  => added removed block code 
+Lab-10  => added removed block code (to use removed block uncomment the code in removed.tf file) 
 <br/>
 Added removed block code and import code (to import resources again) using terraform.
+<br/>
+Lab-11  => added build folder to run srver on ec2
+<br/>
+Added build folder and run on nginx server , added internet gateway, subnet association , route table using terraform.
 
 

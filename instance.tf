@@ -20,16 +20,17 @@ data "aws_ami" "ubuntu" {
 
 #automation of ec2-instance
 resource "aws_instance" "aws-ec2" {
-
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance-type
-  key_name               = aws_key_pair.key-pair-ec2.key_name              #assinging key-pair to an instance
-  vpc_security_group_ids = ["${aws_security_group.security-group-ec2.id}"] #assigning vpc and security group to an instance
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.instance-type
+  key_name                    = aws_key_pair.key-pair-ec2.key_name              #assinging key-pair to an instance
+  vpc_security_group_ids      = ["${aws_security_group.security-group-ec2.id}"] #assigning vpc and security group to an instance
+  subnet_id                   = aws_subnet.labs-public-subnet.id
+  associate_public_ip_address = true
   tags = {
     Name = "aws-ec2-tf"
   }
 
-  user_data = file("${path.module}/userData.sh")
+  # user_data = file("${path.module}/userData.sh")
 
   #defining connection for all provisioners , docs link of provisioner https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec
   connection {
@@ -43,8 +44,8 @@ resource "aws_instance" "aws-ec2" {
     destination = "/tmp/README.md" #remote ubuntu machine
   }
   provisioner "file" {
-    source      = "./test-folder"    #terraform machine folder 
-    destination = "/tmp/test-folder" #remote ubuntu machine
+    source      = "./build"     #terraform machine folder 
+    destination = "/tmp/build/" #remote ubuntu machine
   }
   provisioner "file" {
     content     = "This is content from provisioner"
@@ -52,16 +53,22 @@ resource "aws_instance" "aws-ec2" {
   }
 
   provisioner "remote-exec" {
+
     inline = [
-      "ifconfig > /tmp/ifconfig.output",
-      "echo 'This is from terraform' > /tmp/test.txt"
+      "sudo apt-get update ",
+      "sudo apt-get install nginx -y",
+      "sudo rm -rf /var/www/html/*",
+      "sudo cp -r /tmp/build/* /var/www/html/",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
     ]
 
-  }
-  provisioner "remote-exec" {
-    script = "./test-script.sh"
 
   }
+  # provisioner "remote-exec" {
+  #   script = "./test-script.sh"
+
+  # }
 }
 
 output "public-ip" {

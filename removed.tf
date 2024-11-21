@@ -1,6 +1,6 @@
-removed {
-  from = aws_vpc.labs-vpc
-  lifecycle {
-    destroy = false
-  }
-}
+# removed {
+#   from = aws_vpc.labs-vpc
+#   lifecycle {
+#     destroy = false
+#   }
+# }
